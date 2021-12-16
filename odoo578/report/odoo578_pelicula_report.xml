@@ -1,0 +1,31 @@
+<odoo>
+    <record id="odoo578.pelicula_report" model="ir.actions.report">
+        <field name="name"> Informe de peliculas</field>
+        <field name="model">odoo578.pelicula</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo578.pelicula_report_view</field>
+        <field name="report_file">odoo578.pelicula_report</field>
+        <field name="binding_model_id" ref="model_odoo578_pelicula"/>
+        <field name="binding_type">report</field>
+
+    </record>
+
+    <template id="pelicula_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>Peliculas </h1><br />
+                <t t-foreach="docs" t-as="pelicula">
+                    <ul>
+                        <li>    Titulo <span t-field="pelicula.name" /></li>
+                        <li>    Fecha <span t-field="pelicula.fecha" /></li>
+                        <li>    Genero <span t-field="pelicula.genero" /></li>
+                        <li>    Descripcion <span t-field="pelicula.descripcion" /></li>
+
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

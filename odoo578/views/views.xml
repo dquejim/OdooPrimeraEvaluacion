@@ -1,0 +1,131 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="odoo578.pelicula_list_view">
+      <field name="name">odoo578.pelicula.view.tree</field>
+      <field name="model">odoo578.pelicula</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="fecha"/>
+          <field name="genero"/>
+          <field name="descripcion"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+<record model="ir.ui.view" id="odoo578.pelicula_search_view">
+      <field name="name">odoo578.pelicula.view.search</field>
+      <field name="model">odoo578.pelicula</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="fecha"/>
+          <field name="genero"/>
+          <field name="descripcion"/>
+          <group>
+            <filter name="group_by_fecha" string="fecha" context="{'gropup_by':'fecha'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="odoo578.persona_form_view">
+      <field name="name">odoo578.pelicula.view.form</field>
+      <field name="model">odoo578.pelicula</field>
+      <field name="arch" type="xml">
+        <form string="Información pelicula">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Titulo <field name="name" placeholder="titulo"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="fecha" placeholder="fecha"/>
+                <field name="genero"/>
+                <field name="descripcion"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+
+
+<!-- calendar -->
+
+    <record model="ir.ui.view" id="odoo578.pelicula_calendar_view">
+      <field name="name">odoo578.pelicula.view.calendar</field>
+      <field name="model">odoo578.pelicula</field>
+      <field name="arch" type="xml">
+        <calendar string="Fecha" date_start="fecha" color="name" mode="month">
+          <field name="name"/>
+          <field name="genero"/>
+          <field name="descripcion"/>
+        </calendar>
+      </field>
+    </record>
+
+
+
+
+    <!-- Definición de menús-->
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="odoo578.pelicula_action_window">
+      <field name="name">Peliculas</field>
+      <field name="res_model">odoo578.pelicula</field>
+      <field name="view_mode">tree,form,calendar</field>
+    </record>
+
+    <menuitem name="odoo578" id="odoo578.menu_root"/>
+    <menuitem name="Peliculas" id="odoo578.menu_pelicula" parent="odoo578.menu_root"/>
+    <menuitem name="List" id="odoo578.menu_pelicula_list" parent="odoo578.menu_pelicula"
+              action="odoo578.pelicula_action_window"/>
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="odoo578.action_server">
+      <field name="name">odoo578 server</field>
+      <field name="model_id" ref="model_odoo578_odoo578"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="odoo578" id="odoo578.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="odoo578.menu_1" parent="odoo578.menu_root"/>
+    <menuitem name="Menu 2" id="odoo578.menu_2" parent="odoo578.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="odoo578.menu_1_list" parent="odoo578.menu_1"
+              action="odoo578.action_window"/>
+    <menuitem name="Server to list" id="odoo578" parent="odoo578.menu_2"
+              action="odoo578.action_server"/>
+-->
+  </data>
+</odoo>

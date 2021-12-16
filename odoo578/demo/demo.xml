@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <record id="object0" model="odoo578.pelicula">
+            <field name="name">Prueba0</field>
+            <field name="fecha">20/10/20</field>
+            <field name="genero">Drama</field>
+            <field name="descripcion">Pelicula de drama</field>
+          </record>
+
+        <record id="object1" model="odoo578.pelicula">
+            <field name="name">Prueba1</field>
+            <field name="fecha">20/10/20</field>
+            <field name="genero">Comedia</field>
+            <field name="descripcion">Pelicula de comedia</field>
+          </record>
+
+        <record id="object2" model="odoo578.pelicula">
+            <field name="name">Prueba2</field>
+            <field name="fecha">20/10/20</field>
+            <field name="genero">Terror</field>
+            <field name="descripcion">Pelicula de terror</field>
+          </record>
+    </data>
+</odoo>
